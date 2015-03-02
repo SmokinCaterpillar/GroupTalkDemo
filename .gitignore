@@ -60,3 +60,6 @@ target/
 
 # pypet
 hdf5
+
+# I python Notebook
+.ipynb

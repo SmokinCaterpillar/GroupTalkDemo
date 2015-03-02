@@ -39,7 +39,7 @@ def euler_neuron(V_init, I, tau_V, tau_ref, dt, duration):
     spiketimes = []  # List to collect all times of action potentials
 
     # Do the Euler integration:
-    print 'Starting Euler Integration'
+    print('Starting Euler Integration')
     for step in range(1, steps):
         if V_array[step-1] >= 1:
             # The membrane potential crossed the threshold and we mark this as
@@ -54,7 +54,7 @@ def euler_neuron(V_init, I, tau_V, tau_ref, dt, duration):
             # Euler Integration step:
             dV = -1.0 / tau_V * V_array[step-1] + I
             V_array[step] = V_array[step-1] + dV * dt
-    print 'Finished Euler Integration'
+    print('Finished Euler Integration')
 
     return V_array, spiketimes, times
 
