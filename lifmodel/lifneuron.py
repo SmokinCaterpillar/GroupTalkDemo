@@ -8,7 +8,7 @@ def euler_neuron(V_init, I, tau_V, tau_ref, dt, duration):
 
     Simulates the equation
 
-        tau_V * dV/dT = -V + I
+        dV/dT = -1/tau_V * V + I
 
     with a simple Euler scheme.
 
