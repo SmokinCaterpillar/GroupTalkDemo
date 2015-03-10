@@ -59,7 +59,8 @@ target/
 .idea
 
 # pypet
-hdf5
+hdf5/
+logs/
 
-# I python Notebook
-.ipynb
+# IPython Notebook
+.ipynb_checkpoints/
