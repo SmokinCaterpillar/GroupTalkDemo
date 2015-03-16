@@ -39,29 +39,24 @@ def main():
     # Also let's plot an example run, how about run 13 ?
     example_run = 13
 
-    traj.v_idx = example_run # We make the trajectory behave as a single run container.
-    # This short statement has two major effects:
-    # a) all explored parameters are set to the value of run 13,
-    # b) if there are tree nodes with names other than the current run aka `run_00000013`
-    # they are simply ignored, if we use the `$` sign or the `crun` statement,
-    # these are translated into `run_00000013`.
+
+    traj.v_idx = example_run # We set the trajectory to a particular run
+
 
     # Get the example data
     example_I = traj.I
     example_tau_ref = traj.tau_ref
     example_V = traj.results.neuron.crun.V # Here crun stands for run_00000013
 
-    # We need the time step...
-    dt = traj.dt
-    # ...to create an x-axis for the plot
-    dt_array = [irun * dt for irun in range(len(example_V))]
+    # Get the sampled timesteps
+    dt_array = traj.results.neuron.crun.times
 
     # And plot the development of V over time,
     # Since this is rather repetitive, we only
     # plot the first eighth of it.
     plt.subplot(2,1,2)
     plt.plot(dt_array, example_V)
-    plt.xlim((0, dt*len(example_V)/8))
+    plt.xlim((0, dt_array[1000]))
 
     # Label the axis
     plt.xlabel('t[ms]')

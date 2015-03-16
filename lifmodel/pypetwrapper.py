@@ -24,9 +24,10 @@ def pypet_neuron(traj):
     # Calculate the spikes
     nspikes = len(spiketimes)
 
-    traj.f_add_result('neuron.$', V=V_array, nspikes=nspikes, spiketimes=spiketimes,
-                      comment='Contains the development of the membrane potential over time '
-                              'as well as the number of spikes and the spikestimes.')
+    traj.f_add_result('neuron.$', V=V_array, times=times, nspikes=nspikes,
+                      comment='Contains the development of the membrane potential over time, '
+                              'the corresponding timesteps, '
+                              'as well as the number of spikes.')
 
     # * 1000 because we assume units of milliseconds
     return nspikes/traj.duration * 1000.0
